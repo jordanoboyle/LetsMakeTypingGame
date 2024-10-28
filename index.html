@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Feel The Need For Speed</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/fcdeeb62e3.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <button id="settings-btn" class="settings-btn">
+    <i class="fas fa-cog"></i>
+  </button>
+
+  <div id="settins" class="settings">
+    <form action="" id="settings-form">
+      <label for="difficulty">Difficulty Select</label>
+      <select name="" id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </form>
+  </div>
+
+  <div class="game-container">
+    <h2>Feel the Need For SpEeD</h2>
+    <small>Type The Following:</small>
+
+    <h1 id="word"></h1>
+
+    <input type="text" id="text" autocomplete="off" placeholder="Type the given word...">
+
+    <p class="time-container">
+      Time Left: <span id="time">10s</span>
+    </p>
+
+    <p class="score-container">
+      Score: <span id="score">0</span>
+    </p>
+
+    <div id="end-game-container" class="end-game-container"></div>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+
+</html>
