@@ -122,6 +122,10 @@ text.addEventListener('input', e => {
     updateScore();
     //CLEAR
     e.target.value = '';
+    
+    
+    //Adding time if correct answer
+    time += 5;
+    updateTime();
   }
-  
 });
