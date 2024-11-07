@@ -64,7 +64,10 @@ async function getRandomWordFromAPI() {
   }
 }
 
+//Updating the DOM
+async function updateWordToDOM() {
+  randomWord = await getRandomWordFromAPI();
+  word.innerHTML = randomWord;
+}
 
-console.log(getRandomWord());
-
-getRandomWordFromAPI().then(word => console.log(word));
+updateWordToDOM();
