@@ -46,10 +46,17 @@ let time = 10;
 // let randWordAPI;
 
 
-//Generate a random word.
+//Generate a random word. (THIS IS CURRENTLY REDUDANT)
 function getRandomWord() {
   return words[Math.floor(Math.random() * words.length)];
 }
+
+//Focus on text on START
+text.focus(); //This little nifty method focuses the "cursor" directly on the input box
+
+
+//Start Counting Down
+const timeInterval = setInterval(updateTime, 1000);
 
 //Optional random word API call
 async function getRandomWordFromAPI() {
@@ -64,10 +71,38 @@ async function getRandomWordFromAPI() {
   }
 }
 
-//Updating the DOM
+
+//Updating the word DOM element
 async function updateWordToDOM() {
   randomWord = await getRandomWordFromAPI();
   word.innerHTML = randomWord;
 }
 
+
+//Updating the score
+function updateScore() {
+  score ++;
+  scoreEl.innerHTML = score;
+}
+
+//Update the Time
+function updateTime() {
+  console.log(1);
+}
+
 updateWordToDOM();
+
+//Event Listeners
+text.addEventListener('input', e => {
+  const insertedText = e.target.value;
+  // console.log(insertedText);
+
+  if (insertedText === randomWord) {
+    updateWordToDOM();
+
+    updateScore();
+    //CLEAR
+    e.target.value = '';
+  }
+  
+});
