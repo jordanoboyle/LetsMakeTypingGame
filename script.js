@@ -42,17 +42,17 @@ let score = 0;
 //Initialize time
 let time = 10;
 
-//Initialize Difficulty
-let difficulty = 'medium';
+//Initialize Difficulty/Setting from Local Storage
+let difficulty = localStorage.getItem('difficulty') !== null 
+  ? localStorage.getItem('difficulty') : 'easy';
 
-// //Initialize random word
-// let randWordAPI;
+//Set difficulty select value (in the input)
+difficultySelect.value = localStorage.getItem('difficulty') !== null 
+  ? localStorage.getItem('difficulty') 
+  : 'easy';
 
+//(THIS WORKS, BUT CURRENTLY IS SORT OF BROKEN. WHEN LOCAL STORAGE IS MANIPULATED, DOESN'T SHOW EASY)
 
-//Generate a random word. (THIS IS CURRENTLY REDUDANT)
-function getRandomWord() {
-  return words[Math.floor(Math.random() * words.length)];
-}
 
 //Focus on text on START
 text.focus(); //This little nifty method focuses the "cursor" directly on the input box
@@ -130,7 +130,13 @@ text.addEventListener('input', e => {
     
     
     //Adding time if correct answer
-    time += 5;
+    if (difficulty === 'hard') {
+      time += 3;
+    } else if (difficulty === 'medium') {
+      time += 4;
+    } else {
+      time += 5;
+    }
     updateTime();
   }
 });
@@ -142,6 +148,8 @@ settingsBtn.addEventListener('click', () =>
 //SETTINGS SELECTION
 settingsForm.addEventListener('change', e => {
   difficulty = e.target.value;
-
   console.log(difficulty);
+
+  localStorage.setItem('difficulty', difficulty);
+
 });
