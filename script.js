@@ -42,6 +42,9 @@ let score = 0;
 //Initialize time
 let time = 10;
 
+//Initialize Difficulty
+let difficulty = 'medium';
+
 // //Initialize random word
 // let randWordAPI;
 
@@ -112,6 +115,8 @@ function gameOver() {
 updateWordToDOM();
 
 //Event Listeners
+
+//TYPING
 text.addEventListener('input', e => {
   const insertedText = e.target.value;
   // console.log(insertedText);
@@ -128,4 +133,15 @@ text.addEventListener('input', e => {
     time += 5;
     updateTime();
   }
+});
+
+//SETTINGS BUTTON CLICK
+settingsBtn.addEventListener('click', () => 
+  settings.classList.toggle('hide'));
+
+//SETTINGS SELECTION
+settingsForm.addEventListener('change', e => {
+  difficulty = e.target.value;
+
+  console.log(difficulty);
 });
