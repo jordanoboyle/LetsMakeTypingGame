@@ -1,9 +1,14 @@
 # Speed Typing Game
+This is a simple typing game that is meant to test speed and demonstrate the ability to make API calls in order to make the game more exciting. Currently it is functional and has three different difficulties, timer, and a score keeper with a game reload screen. Also included is a settings menu that can be hidden upon input on the gear settings button. 
 
 ## Project Overview
+This project leverages a random word generating API https://random-word-api.vercel.app/api?words=1. This API has some ability to customize the requests you make, in terms of the length of the word and what the word starts with. See documentation, or instructions here; https://random-word-api.vercel.app/. Full disclosure, while I customized a lot of this and used little tricks that I know to streamline a few things, this was built as part of a class with coaching involved.
 
 ## Features
-
+- Fetches random words in real time to test typing skills. 
+- Difficulty selection option that manipulates the amount of time added to countdown if word is accurate. 
+- Final score and reload screen to restart the game. 
+- Leveraging local storage to allow for the difficulty to be retained after refreshes. 
 
 --------------------------------------------------------------
 
